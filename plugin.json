@@ -1,0 +1,47 @@
+{
+  "name": "wantWords",
+  "pluginName": "wantWords反向词典",
+  "description": "反向词典",
+  "preload": "public/preload.js",
+  "logo": "public/logo.jpg",
+  "homepage": "https://github.com/zangguojun/utools-plugin-want-words",
+  "author": "zangguojun",
+  "features": [
+    {
+      "code": "ZhZh",
+      "explain": "汉语=>汉语",
+      "cmds": [
+        "汉转汉",
+        "ZhZh",
+        "zz"
+      ]
+    },
+    {
+      "code": "ZhEn",
+      "explain": "汉语=>英语",
+      "cmds": [
+        "汉转英",
+        "ZhEn",
+        "ze"
+      ]
+    },
+    {
+      "code": "EnEn",
+      "explain": "英语=>英语",
+      "cmds": [
+        "英转英",
+        "EnEn",
+        "ee"
+      ]
+    },
+    {
+      "code": "EnZh",
+      "explain": "英语=>汉语",
+      "cmds": [
+        "英转汉",
+        "EnZh",
+        "ez"
+      ]
+    }
+  ]
+}
