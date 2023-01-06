@@ -26,9 +26,9 @@ const praise = async (selectData, originData = window.backSetList[0]) => {
   await axios.get(`https://wantwords.net/feedback/?c=${selectData.title}|2|||${originData.title}&m=w`)
 }
 
-const config = features.reduce((pre, cur) => {
+window.exports = features.reduce((pre, cur) => {
   const { code, explain } = cur
-  const [, output] = explain.split('=>')
+  const [input, output] = explain.split('=>')
   const detail = {
     mode: "list",
     args: {
@@ -47,7 +47,3 @@ const config = features.reduce((pre, cur) => {
   }
   return { ...pre, [code]: detail }
 }, {})
-
-console.log('🚀~ 50  config', config)
-
-window.exports = config
