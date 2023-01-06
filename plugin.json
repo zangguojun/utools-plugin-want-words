@@ -3,7 +3,7 @@
   "pluginName": "wantWords反向词典",
   "description": "反向词典",
   "preload": "public/preload.js",
-  "logo": "public/logo.jpg",
+  "logo": "public/logo.png",
   "homepage": "https://github.com/zangguojun/utools-plugin-want-words",
   "author": "zangguojun",
   "features": [
