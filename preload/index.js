@@ -22,6 +22,29 @@ const tryUrl = async (url) => {
       description: item.d,
       url: `https://openhownet.thunlp.org/search?keyword=${item.w}`
     }))
+    try {
+      const w = data.slice(0, 100).map(it => it?.w).join('|')
+      const { data: descData = [] } = await axios.post('https://wantwords.net/GetChDefis/', {
+        w,
+        m: 0
+      }, {
+        headers: {
+          flag,
+          'X-Requested-With': 'XMLHttpRequest',
+          'Content-Type': 'application/json'
+        }
+      })
+      // 移除第二个，特殊元素？你问我为什么？我也不知道为啥wantword这样设计
+      // descData.splice(1, 1)
+
+      window.backSetList = data.map((item, index) => ({
+        title: item.w,
+        description: descData?.[index]?.Z?.map(([, v, desc], i) => `${i + 1}.[${v}]${desc}`).join(''),
+        url: `https://openhownet.thunlp.org/search?keyword=${item.w}`
+      }))
+
+    } catch (e) {}
+
   } else {
     window.backSetList = [{
       title: data.message,
@@ -62,8 +85,8 @@ window.exports = features.reduce((pre, cur) => {
         callbackSetList(window.backSetList)
       },
       select: async (action, itemData) => {
+        window.utools.copyText(itemData.description)
         window.utools.hideMainWindow()
-        window.utools.copyText(itemData.title)
         await praise(itemData)
         window.utools.outPlugin()
       },
