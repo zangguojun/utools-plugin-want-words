@@ -39,7 +39,7 @@ const tryUrl = async (url) => {
 
       window.backSetList = data.map((item, index) => ({
         title: item.w,
-        description: descData?.[index]?.Z?.map(([, v, desc], i) => `${i + 1}.[${v}]${desc}`).join(''),
+        description: descData?.[index]?.Z?.map(([, v, desc], i) => `${i + 1}.${v ? `[${v}]` : ''}${desc}`).join(''),
         url: `https://openhownet.thunlp.org/search?keyword=${item.w}`
       }))
 
