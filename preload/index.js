@@ -34,8 +34,6 @@ const tryUrl = async (url) => {
           'Content-Type': 'application/json'
         }
       })
-      // 移除第二个，特殊元素？你问我为什么？我也不知道为啥wantword这样设计
-      // descData.splice(1, 1)
 
       window.backSetList = data.map((item, index) => ({
         title: item.w,
