@@ -83,7 +83,7 @@ window.exports = features.reduce((pre, cur) => {
         callbackSetList(window.backSetList)
       },
       select: async (action, itemData) => {
-        window.utools.copyText(itemData.description)
+        window.utools.copyText(itemData.title)
         window.utools.hideMainWindow()
         await praise(itemData)
         window.utools.outPlugin()
